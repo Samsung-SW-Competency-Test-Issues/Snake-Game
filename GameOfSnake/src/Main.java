@@ -99,7 +99,7 @@ public class Main {
 		String line;
 		for(int i=0;i<numOfApple; i++) {
 			line = scan.nextLine();
-			apples.add((Integer.parseInt(line.split(" ")[0])-1)+""+(Integer.parseInt(line.split(" ")[1])-1));
+			apples.add((Integer.parseInt(line.split(" ")[0])-1)+"/"+(Integer.parseInt(line.split(" ")[1])-1));
 		}
 		int numOfCurve = scan.nextInt();
 		scan.nextLine();
@@ -114,6 +114,7 @@ public class Main {
 		snakeBody.add(snake.point.x+"/"+snake.point.y);
 		
 		int time = 1;
+
 		while(true) {
 
 			/*회전할지 말지*/
@@ -126,7 +127,6 @@ public class Main {
 			snake.moveTo = 'H';
 			
 			
-			
 			/*충돌*/
 			if(snakeBody.contains(snake.point.x+"/"+snake.point.y)) {
 				break;
@@ -135,9 +135,9 @@ public class Main {
 				break;
 			}
 			/*뱀의 길이 줄일지 말지*/
-			if(apples.contains(snake.point.x+""+snake.point.y)) {
+			if(apples.contains(snake.point.x+"/"+snake.point.y)) {
 				snakeBody.add(snake.point.x+"/"+snake.point.y);
-				apples.remove(snake.point.x+""+snake.point.y);
+				apples.remove(snake.point.x+"/"+snake.point.y);
 				
 			}else {
 				snakeBody.add(snake.point.x+"/"+snake.point.y);
@@ -145,7 +145,7 @@ public class Main {
 			}
 			time++;
 		}
-		System.out.println(time);
+		System.out.print(time);
 	}
 
 }
